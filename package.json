@@ -1,0 +1,16 @@
+{
+  "name": "uni-discord-bot",
+  "version": "1.0.0",
+  "description": "A discord bot pulling information from Uniswap and alertingeting the threshold",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Peter",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.18.0"
+  }
+}
