@@ -30,13 +30,13 @@ function createEmbed(fetchObj) {
 
 module.exports = {
 	name: 'lookup',
-	description: 'Lookup a certain coin [X]. Used in format `lookup [TICKER]`, or `lookup [STA]`.',
+	description: 'Lookup a certain coin [X]. Used in format `!lookup [coin-name]`, or `!lookup [ticker]`.\nExample: `!lookup statera` or `!lookup btc`.\n\nIf the incorrect coin is found using only the ticker, try using its full name instead. For example, `!lookup meridian-network` rather than `!lookup LOCK`',
 	async execute(message) {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
 	  const command = args.shift().toLowerCase();
 
     if (!args.length) {
-      return message.channel.send('You need to supply a search term!');
+      return message.channel.send('You need to supply a coin to lookup! E.G. `!lookup statera`, or `!lookup BTC`');
     }
 
     // try to find the coin with the input as the ID

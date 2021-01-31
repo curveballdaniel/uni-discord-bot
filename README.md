@@ -1,5 +1,5 @@
 # uni-discord-bot
-A simple Discord Uniswap bot which alerts when certain thresholds are met
+A crypto Discord bot written in node.js with a variety of different coin info/price searching commands, and soon alerts when/if certain thresholds are met.
 
 # Starting up the bot
 
@@ -59,6 +59,19 @@ Circulating Supply: 82,920,989.2502525 / 82,920,989.2502525
 Today at 7:38 PM
 ```
 
+## Gas
+
+Usage:
+```
+!gas
+```
+
+Uses the Etherscan Gas Oracle to display the current slow, average, and fast gas prices in gwei. Will also tell you whether these numbers are relatively high or low, and how long (guesstimate) it would take to get a transaction through using the average gas price displayed.
+
 # Required files
 
 In order to correctly run the bot, a `TOKEN` env variable is required. This can be obtained from https://discord.com/developers/applications.
+
+# Thanks to
+
+CoinGecko's free API, Etherscan's free API
