@@ -3,7 +3,7 @@ A simple Discord Uniswap bot which alerts when certain thresholds are met
 
 # Starting up the bot
 
-Simply run `node index.js` to start the bot!
+Simply run `node index.js` to start the bot! If the bot is not running, it will show as offline in the Discord server. Then, none of the commands will work.
 
 # Required files
 
