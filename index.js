@@ -1,6 +1,7 @@
 const fs = require('fs');
 const dotenv = require('dotenv');
 const Discord = require('discord.js');
+const loopStateraPrice = require('./background/statera-price-seeker')
 
 dotenv.config();
 const { prefix } = require('./config.json');
@@ -17,6 +18,8 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
+	console.log('Starting Statera Moon Bot...')
+	loopStateraPrice(client)
 	console.log('Ready!');
 });
 
