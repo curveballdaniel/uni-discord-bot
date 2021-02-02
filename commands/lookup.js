@@ -33,37 +33,40 @@ module.exports = {
 	description: 'Lookup a certain coin [X]. Used in format `!lookup [coin-name]`, or `!lookup [ticker]`.\nExample: `!lookup statera` or `!lookup btc`.\n\nIf the incorrect coin is found using only the ticker, try using its full name instead. For example, `!lookup meridian-network` rather than `!lookup LOCK`',
 	async execute(message) {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
-	  const command = args.shift().toLowerCase();
+    // remove command
+    args.shift()
 
-    if (!args.length) {
+    if (args.length < 1) {
       return message.channel.send('You need to supply a coin to lookup! E.G. `!lookup statera`, or `!lookup BTC`');
     }
 
+    const userToken = args.shift().toLowerCase();
+
     // try to find the coin with the input as the ID
-    fetch(`https://api.coingecko.com/api/v3/coins/${args[0]}`)
+    fetch(`https://api.coingecko.com/api/v3/coins/${userToken}`)
       .then(response => response.json())
       .then(function (jsonResult) {
         return message.channel.send(createEmbed(jsonResult));
       })
       .catch(async function (error) {
-        message.channel.send(`Can't find that coin name, searching for $${args[0]}`)
+        message.channel.send(`Can't find that coin name, searching for $${userToken}`)
 
         // otherwise parse the coingecko for the coin's thought listing
         const coinList = await fetch('https://api.coingecko.com/api/v3/coins/list')
           .then(response => response.json())
           .catch(error => message.channel.send('Error listing all coins: ', error));
 
-          // then search for the appropriate ID and get the coin that way
-          for (let i in coinList) {
-            if (coinList[i].symbol === args[0]) {
-              const coinId = coinList[i].id
+        // then search for the appropriate ID and get the coin that way
+        for (let i in coinList) {
+          if (coinList[i].symbol === userToken) {
+            const coinId = coinList[i].id
 
-              let coin = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`)
-                .then(response => response.json())
-                .catch(error => message.channel.send('Error listing all coins: ', error));
+            let coin = await fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`)
+              .then(response => response.json())
+              .catch(error => message.channel.send('Error listing all coins: ', error));
 
-              return message.channel.send(createEmbed(coin));
-            }
+            return message.channel.send(createEmbed(coin));
+          }
         }
       return message.channel.send('I still couldn\'t find the coin :(');
     });

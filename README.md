@@ -68,6 +68,27 @@ Usage:
 
 Uses the Etherscan Gas Oracle to display the current slow, average, and fast gas prices in gwei. Will also tell you whether these numbers are relatively high or low, and how long (guesstimate) it would take to get a transaction through using the average gas price displayed.
 
+## Price
+
+Usage:
+```
+!price [coin-name OR ticker]
+```
+
+For example,
+
+```
+!price statera
+or
+!price BTC
+```
+
+Lookup uses the CoinGecko API to search for the token and return the price of the coin and its current volume. A sample run for `!price statera`
+
+```
+The price of statera (statera) is $0.13273 USD! (Volume: $222,141)
+```
+
 # Required files
 
 In order to correctly run the bot, a `TOKEN` env variable is required. This can be obtained from https://discord.com/developers/applications.
