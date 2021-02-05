@@ -23,7 +23,7 @@ module.exports = {
     ]
 
     const coinTable = [
-      ['(Rank) Name', '24h Gain/Loss %', 'Price (USD)', 'Volume (USD)']
+      ['(Rank) Name', '24h Gain/Loss %', 'Price (USD)', 'Market Cap (USD)']
     ]
 
     // fetch coins from CoinGecko API
@@ -40,7 +40,7 @@ module.exports = {
           `(${jsonResult.market_data.market_cap_rank}) ${portfolioCoins[index]}`,
           `${jsonResult.market_data.price_change_percentage_24h}%`,
           `$${addCommas(jsonResult.market_data.current_price.usd)}`,
-          `$${addCommas(jsonResult.market_data.total_volume.usd)}`
+          `$${addCommas(jsonResult.market_data.market_cap.usd)}`
           ]
         )
       }

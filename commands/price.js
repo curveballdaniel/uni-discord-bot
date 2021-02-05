@@ -34,7 +34,9 @@ module.exports = {
     }
 
     return message.channel.send(`The price of ${userToken} (${jsonResult.id}) is` +
-      ` $${addCommas(jsonResult.market_data.current_price.usd)} USD! ` +
-      `(Volume: $${addCommas(jsonResult.market_data.total_volume.usd)})`)
+      ` $${addCommas(jsonResult.market_data.current_price.usd)} USD!\n` +
+      `Up ${jsonResult.market_data.price_change_percentage_24h}% Daily` +
+      ` and ${jsonResult.market_data.price_change_percentage_7d}% Weekly.` +
+      ` (Volume: $${addCommas(jsonResult.market_data.total_volume.usd)})`)
 	},
 }

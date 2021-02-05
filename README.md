@@ -83,10 +83,46 @@ or
 !price BTC
 ```
 
-Lookup uses the CoinGecko API to search for the token and return the price of the coin and its current volume. A sample run for `!price statera`
+Lookup uses the CoinGecko API to search for the token and return the price of the coin, percent gains, and its current volume. A sample run for `!price buidl`
 
 ```
-The price of statera (statera) is $0.13273 USD! (Volume: $222,141)
+The price of buidl (dfohub) is $1.55 USD!
+Up 14.67301% Daily and 10.13823% Weekly. (Volume: $176,434)
+```
+
+## Portfolio
+
+Usage:
+```
+!portfolio
+```
+
+Returns a portfolio in table form (using the CoinGecko API) which includes the name and rank of the coin, percent gains, current price, and marketcap. The portfolio coins are hard coded, and chosen by the inhabitants of the discord server, specifically including those coins they are interested in/are currently holding.
+
+A sample run for `!portfolio`
+
+```
+Here's how the portfolio is doing!
+╔══════════════════════╤══════════════════════╤══════════════════════╤══════════════════════╗
+║ (Rank) Name          │ 24h Gain/Loss %      │ Price (USD)          │ Market Cap (USD)     ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (1) bitcoin          │ 0.91255%             │ $37,196              │ $689,361,239,629     ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (2) ethereum         │ 0.51901%             │ $1,641.89            │ $188,596,992,829     ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (7) chainlink        │ -2.58406%            │ $24.32               │ $9,826,919,021       ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (196) xdai-stake     │ 3.96883%             │ $21.66               │ $86,068,095          ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (277) growth-defi    │ 1.57948%             │ $158.27              │ $49,900,016          ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (597) statera        │ 3.12523%             │ $0.125602            │ $10,338,732          ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (811) dfohub         │ 5.92604%             │ $1.55                │ $4,841,764           ║
+╟──────────────────────┼──────────────────────┼──────────────────────┼──────────────────────╢
+║ (1100) meridian-netw │ -4.23912%            │ $0.154682            │ $1,657,133           ║
+║ ork                  │                      │                      │                      ║
+╚══════════════════════╧══════════════════════╧══════════════════════╧══════════════════════╝
 ```
 
 # Required files
